@@ -1,19 +1,24 @@
 # 📘 Retrieval-Augmented Generation (RAG) Application
 
-A comprehensive demonstration of building a production-ready Retrieval-Augmented Generation (RAG) pipeline using LangChain, LangGraph, and LangSmith. This project showcases the integration of vector databases with local LLMs to create intelligent document Q&A systems for enterprise use cases.
+A comprehensive demonstration of building a Retrieval-Augmented Generation (RAG) pipeline using LangChain, LangGraph for agent workflows, and LangSmith for tracing and evaluation. This project is designed for educational purposes and team demonstrations.
 
 ## 🎯 Project Overview
 
-This project implements a complete RAG pipeline that enhances language model capabilities by integrating external knowledge retrieved from documents during response generation. The system is designed for enterprise applications such as customer service, technical support, and internal knowledge base assistants.
+This Jupyter Notebook demonstrates:
+- **LangChain**: Building a RAG pipeline with tools and memory
+- **LangGraph**: Modeling agent workflows with retry and fallback mechanisms
+- **LangSmith**: Tracing, debugging, and evaluating agent runs
+- **Ollama**: Using local LLM (Llama 3.1) for inference
+- **Chroma**: Vector database for document storage and retrieval
 
-### Key Features
+## 📋 Features
 
-- **End-to-end RAG pipeline** with document processing and retrieval
-- **Local LLM integration** using Ollama (Llama 3.1)
-- **Agent workflows** with LangGraph for complex decision trees
-- **Comprehensive monitoring** with LangSmith tracing
-- **Interactive Q&A system** with conversational memory
-- **Self-hosted solution** without cloud API dependencies
+- End-to-end RAG pipeline with HR document processing
+- Interactive document Q&A system
+- Agent workflow visualization
+- Comprehensive tracing and debugging
+- Memory management for conversational context
+- Error handling and fallback strategies
 
 ## 🏗️ Architecture
 
@@ -30,17 +35,14 @@ This project implements a complete RAG pipeline that enhances language model cap
 └─────────────────┘    └──────────────────┘    └─────────────────┘
 ```
 
-## 🛠️ Technology Stack
+## 🛠 Technology Stack
 
-| Component | Technology | Purpose |
-|-----------|------------|---------|
-| **LLM** | Llama 3.1 (via Ollama) | Text generation and reasoning |
-| **Vector Store** | ChromaDB | Document embeddings storage |
-| **Embeddings** | HuggingFace/Sentence Transformers | Text vectorization |
-| **Framework** | LangChain + LangGraph | RAG pipeline orchestration |
-| **Monitoring** | LangSmith | Tracing and evaluation |
-| **Document Processing** | PyPDF + RecursiveCharacterTextSplitter | Text extraction and chunking |
-| **Interface** | Jupyter Notebook | Interactive development |
+- **LLM**: Llama 3.1 (via Ollama)
+- **Vector Store**: Chroma
+- **Embeddings**: HuggingFace Embeddings
+- **Framework**: LangChain + LangGraph
+- **Monitoring**: LangSmith
+- **Document Processing**: PyPDF + Recursive Text Splitter
 
 ## 📦 Installation
 
@@ -119,21 +121,14 @@ LANGCHAIN_PROJECT="RAG-Demo"
 
 ### 2. Project Structure
 
+*Project structure will be updated based on the provided screenshot*
+
 ```
 rag-application/
 ├── README.md
-├── requirements.txt
 ├── .env
-├── .gitignore
-├── rag_demo.ipynb           # Main notebook
-├── documents/               # Sample documents
-│   └── sample_hr_document.pdf
-├── chroma_db/              # Vector store (auto-generated)
-└── src/                    # Additional utilities (optional)
-    ├── __init__.py
-    ├── document_processor.py
-    ├── rag_pipeline.py
-    └── utils.py
+├── RAG.ipynb               # Main notebook
+├── HR_doc.pdf             # Sample HR document
 ```
 
 ## 🚀 Quick Start
@@ -188,52 +183,6 @@ Try these sample queries:
 - **Decision Trees**: Handle complex query routing
 - **Error Handling**: Implement retry and fallback mechanisms
 
-## 🔍 Advanced Features
-
-### Memory Management
-```python
-# Conversational memory for multi-turn interactions
-from langchain.memory import ConversationBufferWindowMemory
-
-memory = ConversationBufferWindowMemory(
-    k=5,  # Remember last 5 exchanges
-    return_messages=True
-)
-```
-
-### Custom Tools Integration
-```python
-# Example custom tool for specific operations
-@tool
-def calculate_days_between_dates(start_date: str, end_date: str) -> str:
-    """Calculate days between two dates."""
-    # Implementation here
-    pass
-```
-
-### Workflow Visualization
-```python
-# Visualize LangGraph workflows
-from langgraph.visualization import visualize_graph
-visualize_graph(workflow)
-```
-
-## 📊 Performance Optimization
-
-### Chunking Strategy
-- **Chunk Size**: 512-1024 tokens for balanced context
-- **Overlap**: 20% overlap between chunks
-- **Splitting**: Respect document structure (paragraphs, sections)
-
-### Retrieval Tuning
-- **Top-K**: Start with k=3-5 relevant chunks
-- **Similarity Threshold**: Filter low-relevance results
-- **Reranking**: Optional reranking for better precision
-
-### Memory Optimization
-- **Model Quantization**: Use 4-bit/8-bit quantized models
-- **Batch Processing**: Process documents in batches
-- **Caching**: Cache embeddings and frequent queries
 
 ## 🐛 Troubleshooting
 
@@ -330,9 +279,6 @@ python tests/integration/test_full_pipeline.py
 - Include unit tests for new features
 - Update documentation accordingly
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙋‍♂️ Support
 
@@ -364,26 +310,5 @@ For questions or issues:
 
 ---
 
-## 📋 Requirements.txt
 
-```txt
-langchain>=0.1.0
-langchain-community>=0.0.20
-langchain-ollama>=0.1.0
-langchain-huggingface>=0.0.3
-langgraph>=0.0.40
-langsmith>=0.1.0
-chromadb>=0.4.0
-pypdf>=4.0.0
-python-dotenv>=1.0.0
-jupyter>=1.0.0
-sentence-transformers>=2.2.0
-numpy>=1.24.0
-pandas>=2.0.0
-matplotlib>=3.7.0
-seaborn>=0.12.0
-streamlit>=1.28.0  # Optional: for web interface
-gradio>=4.0.0      # Optional: for web interface
-```
 
----
