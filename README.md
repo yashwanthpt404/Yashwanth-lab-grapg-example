@@ -37,7 +37,7 @@ This project demonstrates the implementation and working of Retrieval-Augmented 
 - Retrieve top-k relevant chunks as context for the query.
 
 ### 4. **Response Generation**
-- Use `Ollama` to run a local LLM (e.g., LLaMA 3).
+- Use `Ollama` to run a local LLM (e.g., LLaMA 3.1).
 - Construct a prompt with the retrieved context + query.
 - Generate a grounded, context-aware response.
 
