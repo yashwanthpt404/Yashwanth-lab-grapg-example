@@ -14,7 +14,7 @@ This project demonstrates the implementation and working of Retrieval-Augmented 
 
 | Component              | Description                                          |
 |------------------------|------------------------------------------------------|
-| 🧠 LLM                 | `llama3` or equivalent via `Ollama`                  |
+| 🧠 LLM                 | `llama3.1` or equivalent via `Ollama`                  |
 | 📚 Vector Store        | `ChromaDB`                                           |
 | 🛠️ Embeddings         | `sentence-transformers` or `ollama` embeddings       |
 | 💻 Interface           | Python via Jupyter Notebook                          |
